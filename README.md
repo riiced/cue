@@ -1,11 +1,11 @@
 <div align="center">
-  <img src="./logo.svg" alt="Cue Logo" width="150" height="150">
+  <img src="./assets/logo.svg" alt="Cue Logo" width="150" height="150">
   <h3 align="center">Cue</h3>
   <p align="center">
     A desktop music controller for <a href="https://github.com/Spotifyd/spotifyd">spotifyd</a>
   </p>
   
-  <img src="./demo.gif" alt="Cue Demo" width="400">
+  <img src="./assets/demo.gif" alt="Cue Demo" width="400">
 </div>
 
 ## About The Project
