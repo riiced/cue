@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Cue",
+  "version": "0.1.0",
+  "identifier": "rice.cue",
+  "bundle": {
+    "active": true,
+    "targets": ["appimage"],
+    "publisher": "rice",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png"
+    ]
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Cue",
+        "url": "index.html",
+        "width": 260,
+        "height": 260,
+        "resizable": false,
+        "decorations": false,
+        "transparent": false,
+        "alwaysOnTop": true,
+        "shadow": false
+      }
+    ]
+  },
+  "build": {
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "",
+    "frontendDist": "../src"
+  }
+}

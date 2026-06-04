@@ -1,0 +1,784 @@
+<!doctype html>
+<html class="dark" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Cue</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "surface-container-highest": "#353437",
+                            "tertiary-fixed": "#e3e1ea",
+                            "surface-bright": "#39393b",
+                            "surface-container-lowest": "#0e0e10",
+                            "primary-fixed-dim": "#c6c6c7",
+                            "on-secondary": "#2f3037",
+                            primary: "#ffffff",
+                            "error-container": "#93000a",
+                            "on-tertiary-container": "#64646b",
+                            "tertiary-fixed-dim": "#c7c5ce",
+                            "on-surface": "#e5e1e4",
+                            "surface-tint": "#c6c6c7",
+                            "on-background": "#e5e1e4",
+                            secondary: "#c6c6cf",
+                            tertiary: "#ffffff",
+                            error: "#ffb4ab",
+                            "secondary-fixed": "#e2e1eb",
+                            "surface-container-low": "#1c1b1d",
+                            "inverse-on-surface": "#313032",
+                            "on-primary-fixed-variant": "#454747",
+                            "on-tertiary-fixed": "#1b1b21",
+                            "secondary-fixed-dim": "#c6c6cf",
+                            "primary-container": "#e2e2e2",
+                            "on-primary-fixed": "#1a1c1c",
+                            "secondary-container": "#45464e",
+                            "inverse-surface": "#e5e1e4",
+                            outline: "#8e9192",
+                            "inverse-primary": "#5d5f5f",
+                            "on-primary-container": "#636565",
+                            "on-secondary-container": "#b4b4bd",
+                            "on-primary": "#2f3131",
+                            "on-error-container": "#ffdad6",
+                            "on-surface-variant": "#c4c7c8",
+                            "on-secondary-fixed-variant": "#45464e",
+                            surface: "#131315",
+                            "on-secondary-fixed": "#1a1b22",
+                            "surface-variant": "#353437",
+                            "surface-container": "#201f22",
+                            "on-error": "#690005",
+                            "surface-dim": "#131315",
+                            "primary-fixed": "#e2e2e2",
+                            background: "#131315",
+                            "on-tertiary": "#303037",
+                            "surface-container-high": "#2a2a2c",
+                            "tertiary-container": "#e3e1ea",
+                            "outline-variant": "#444748",
+                            "on-tertiary-fixed-variant": "#46464d",
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
+                        spacing: {
+                            "stack-sm": "12px",
+                            "container-padding-mobile": "20px",
+                            gutter: "24px",
+                            "stack-md": "24px",
+                            "stack-lg": "48px",
+                            "container-padding-desktop": "40px",
+                            base: "8px",
+                        },
+                        fontFamily: {
+                            "body-lg": [
+                                "Inter",
+                                "system-ui",
+                                "-apple-system",
+                                "sans-serif",
+                            ],
+                            "display-lg": [
+                                "Inter",
+                                "system-ui",
+                                "-apple-system",
+                                "sans-serif",
+                            ],
+                            "display-lg-mobile": [
+                                "Inter",
+                                "system-ui",
+                                "-apple-system",
+                                "sans-serif",
+                            ],
+                            "body-md": [
+                                "Inter",
+                                "system-ui",
+                                "-apple-system",
+                                "sans-serif",
+                            ],
+                            "headline-md": [
+                                "Inter",
+                                "system-ui",
+                                "-apple-system",
+                                "sans-serif",
+                            ],
+                            "label-sm": [
+                                "Inter",
+                                "system-ui",
+                                "-apple-system",
+                                "sans-serif",
+                            ],
+                        },
+                        fontSize: {
+                            "body-lg": [
+                                "18px",
+                                {
+                                    lineHeight: "1.6",
+                                    letterSpacing: "0em",
+                                    fontWeight: "400",
+                                },
+                            ],
+                            "display-lg": [
+                                "48px",
+                                {
+                                    lineHeight: "1.1",
+                                    letterSpacing: "-0.02em",
+                                    fontWeight: "600",
+                                },
+                            ],
+                            "display-lg-mobile": [
+                                "32px",
+                                {
+                                    lineHeight: "1.2",
+                                    letterSpacing: "-0.01em",
+                                    fontWeight: "600",
+                                },
+                            ],
+                            "body-md": [
+                                "16px",
+                                {
+                                    lineHeight: "1.6",
+                                    letterSpacing: "0em",
+                                    fontWeight: "400",
+                                },
+                            ],
+                            "headline-md": [
+                                "24px",
+                                {
+                                    lineHeight: "1.4",
+                                    letterSpacing: "-0.01em",
+                                    fontWeight: "500",
+                                },
+                            ],
+                            "label-sm": [
+                                "12px",
+                                {
+                                    lineHeight: "1.0",
+                                    letterSpacing: "0.05em",
+                                    fontWeight: "500",
+                                },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            html,
+            body,
+            main {
+                background-color: #131315;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                overflow: hidden !important;
+            }
+            .material-symbols-outlined {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 300,
+                    "GRAD" 0,
+                    "opsz" 24;
+            }
+            .glass-base {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .inner-glow {
+                box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .blur-overlay {
+                backdrop-filter: blur(12px);
+                opacity: 0;
+                transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            .player-paused .blur-overlay {
+                opacity: 1;
+            }
+            .player-active.is-hovered .blur-overlay {
+                opacity: 0.16;
+            }
+
+            .vignette-overlay {
+                background: radial-gradient(
+                    circle,
+                    rgba(0, 0, 0, 0) 30%,
+                    rgba(0, 0, 0, 0.55) 100%
+                );
+                opacity: 0;
+                transition: opacity 2000ms cubic-bezier(0.25, 1, 0.5, 1);
+                pointer-events: none;
+            }
+            .player-active.is-hovered .vignette-overlay {
+                opacity: 1;
+            }
+
+            .player-active .play-icon {
+                display: none;
+            }
+            .player-active .pause-icon {
+                display: block;
+                opacity: 0;
+            }
+
+            .is-hovered .pause-icon {
+                opacity: 0.7;
+            }
+
+            .player-paused .play-icon {
+                display: block;
+            }
+            .player-paused .pause-icon {
+                display: none;
+            }
+
+            .player-paused .song-meta-top {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .player-active .song-meta-top {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            .is-hovered .song-meta-top {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+
+            .player-paused .artist-meta-bottom {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .player-active .artist-meta-bottom {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            .is-hovered .artist-meta-bottom {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+
+            .is-hovered .bottom-controls-reveal {
+                opacity: 1 !important;
+            }
+            .player-paused .bottom-controls-reveal {
+                opacity: 1 !important;
+            }
+
+            .transition-all-custom {
+                transition:
+                    opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+
+            .hover-reveal {
+                opacity: 0;
+                transform: translateY(-50%);
+                transition:
+                    opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            .is-hovered .hover-reveal {
+                opacity: 1;
+                transform: translateY(-50%);
+            }
+
+            .hollow-icon {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 200;
+            }
+
+            #playerContainer {
+                width: 100vmin !important;
+                height: 100vmin !important;
+            }
+
+            #albumArt {
+                transition: transform 2000ms cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            .is-hovered #albumArt {
+                transform: scale(1.04);
+            }
+
+            #volumeSliderHorizontal {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 76px;
+                height: 4px;
+                border-radius: 99px;
+                outline: none;
+                cursor: pointer;
+                background: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0.65) 0%,
+                    rgba(255, 255, 255, 0.65) 65%,
+                    rgba(255, 255, 255, 0.15) 65%,
+                    rgba(255, 255, 255, 0.15) 100%
+                );
+                transition: width 0.2s ease;
+            }
+
+            #volumeSliderHorizontal::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 11px;
+                height: 11px;
+                background: rgba(255, 255, 255, 0.75);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.15s ease;
+                box-shadow: none;
+                border: none;
+            }
+
+            #volumeSliderHorizontal::-webkit-slider-thumb:hover {
+                background: #ffffff;
+            }
+
+            .volume-panel-hidden {
+                opacity: 0;
+                transform: translateX(-6px);
+                pointer-events: none;
+                width: 0px;
+                overflow: hidden;
+            }
+
+            .volume-panel-visible {
+                opacity: 1;
+                transform: translateX(0);
+                pointer-events: auto;
+                width: 110px;
+            }
+
+            #progressRing {
+                transform: rotate(-90deg);
+                transform-origin: center;
+            }
+
+            .progress-ring__circle {
+                transition: stroke-dashoffset 0.5s linear;
+                stroke-linecap: round;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-transparent text-on-surface font-body-md overflow-hidden selection:bg-primary selection:text-surface"
+    >
+        <div
+            class="fixed inset-0 -z-10 bg-gradient-to-br from-surface via-surface-container to-surface-container-low overflow-hidden rounded-none"
+        ></div>
+
+        <main
+            class="w-full h-full flex items-center justify-center relative select-none"
+            data-tauri-drag-region
+        >
+            <div
+                class="relative group player-paused group/player aspect-square max-h-full max-w-full w-full h-full @container"
+                id="playerContainer"
+            >
+                <div
+                    class="relative w-full h-full rounded-none overflow-hidden glass-base inner-glow shadow-2xl transition-all-custom cursor-pointer"
+                    id="miniPlayer"
+                >
+                    <img
+                        alt="Album Art"
+                        class="absolute inset-0 w-full h-full object-cover z-0 rounded-none"
+                        id="albumArt"
+                        src=""
+                    />
+
+                    <div
+                        class="blur-overlay absolute inset-0 z-10 bg-black/25"
+                    ></div>
+
+                    <div class="vignette-overlay absolute inset-0 z-10"></div>
+
+                    <div class="absolute inset-0 z-20">
+                        <div
+                            class="song-meta-top absolute top-[10%] left-0 right-0 px-[8%] text-center transition-all-custom flex-col flex items-center"
+                        >
+                            <h2
+                                class="font-headline-md text-primary truncate drop-shadow-lg text-sm @[290px]:text-base @[310px]:text-lg"
+                            >
+                                Searching...
+                            </h2>
+                            <p
+                                class="artist-meta-bottom tracking-widest uppercase transition-all-custom mt-2 text-[9px] @[290px]:text-[10px] @[310px]:text-xs text-primary/80"
+                            >
+                                Connecting spotifyd
+                            </p>
+                        </div>
+
+                        <div
+                            class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        >
+                            <div
+                                class="relative w-[34%] h-[34%] flex items-center justify-center pointer-events-auto"
+                            >
+                                <svg
+                                    class="absolute inset-0 w-full h-full -rotate-90 opacity-0 transition-opacity duration-500"
+                                    id="mprisProgressRing"
+                                    viewbox="0 0 100 100"
+                                >
+                                    <circle
+                                        class="text-primary/10"
+                                        cx="50"
+                                        cy="50"
+                                        fill="transparent"
+                                        r="45"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                    ></circle>
+                                    <circle
+                                        class="progress-ring__circle text-primary/60"
+                                        cx="50"
+                                        cy="50"
+                                        fill="transparent"
+                                        id="progressRing"
+                                        r="45"
+                                        stroke="currentColor"
+                                        stroke-dasharray="282.743"
+                                        stroke-dashoffset="282.743"
+                                        stroke-width="1.5"
+                                    ></circle>
+                                </svg>
+                                <div
+                                    class="text-primary flex items-center justify-center transition-all duration-300 relative z-10"
+                                >
+                                    <span
+                                        class="material-symbols-outlined play-icon hollow-icon text-3xl @[290px]:text-4xl @[310px]:text-5xl"
+                                        >play_arrow</span
+                                    >
+                                    <span
+                                        class="material-symbols-outlined pause-icon hollow-icon text-primary/70 text-3xl @[290px]:text-4xl @[310px]:text-5xl"
+                                        >pause</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            id="prevBtn"
+                            class="hover-reveal absolute left-[6%] top-1/2 text-primary/60 hover:text-primary transition-all duration-300"
+                        >
+                            <span
+                                class="material-symbols-outlined text-2xl @[290px]:text-3xl @[310px]:text-4xl hollow-icon"
+                                >skip_previous</span
+                            >
+                        </button>
+                        <button
+                            id="nextBtn"
+                            class="hover-reveal absolute right-[6%] top-1/2 text-primary/60 hover:text-primary transition-all duration-300"
+                        >
+                            <span
+                                class="material-symbols-outlined text-2xl @[290px]:text-3xl @[310px]:text-4xl hollow-icon"
+                                >skip_next</span
+                            >
+                        </button>
+
+                        <div
+                            class="absolute bottom-[8%] left-[8%] flex items-center"
+                        >
+                            <div
+                                class="bottom-controls-reveal opacity-0 transition-opacity duration-300 flex items-center relative"
+                            >
+                                <div
+                                    id="volumeGroup"
+                                    class="relative flex items-center gap-3 group/volume"
+                                >
+                                    <button
+                                        class="text-primary/60 hover:text-primary transition-all flex items-center justify-center"
+                                        id="volumeIconBtn"
+                                    >
+                                        <span
+                                            class="material-symbols-outlined text-xl @[310px]:text-2xl hollow-icon"
+                                            id="volumeIcon"
+                                            >volume_up</span
+                                        >
+                                    </button>
+                                    <div
+                                        class="flex items-center gap-2 volume-panel-hidden transition-all duration-300"
+                                        id="volumePanel"
+                                    >
+                                        <input
+                                            id="volumeSliderHorizontal"
+                                            max="100"
+                                            min="0"
+                                            step="10"
+                                            type="range"
+                                            value="65"
+                                        />
+                                        <span
+                                            class="font-light text-primary/60 text-xs select-none min-w-[24px]"
+                                            id="volumePercent"
+                                            >65%</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            const playerContainer = document.getElementById("playerContainer");
+            const miniPlayer = document.getElementById("miniPlayer");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const volumeIconBtn = document.getElementById("volumeIconBtn");
+            const volumeGroup = document.getElementById("volumeGroup");
+            const volumeSlider = document.getElementById(
+                "volumeSliderHorizontal",
+            );
+            const volumeIcon = document.getElementById("volumeIcon");
+            const volumePanel = document.getElementById("volumePanel");
+            const volumePercent = document.getElementById("volumePercent");
+            const progressRing = document.getElementById("progressRing");
+            const mprisProgressRing =
+                document.getElementById("mprisProgressRing");
+            const trackTitle = document.querySelector("h2");
+            const artistMeta = document.querySelector(".artist-meta-bottom");
+            const albumArt = document.getElementById("albumArt");
+
+            let isPlaying = true;
+            let isVolumePanelOpen = false;
+            let isVolumeLocked = false;
+            let volumeLockoutTimer = null;
+            let isMouseInside = false;
+            let hoverTimeout = null;
+
+            const radius = 45;
+            const circumference = radius * 2 * Math.PI;
+
+            function setProgress(percent) {
+                const offset = circumference - (percent / 100) * circumference;
+                progressRing.style.strokeDashoffset = offset;
+            }
+
+            function togglePlayState(event) {
+                if (event.target.closest("button")) return;
+                if (event.target.closest('input[type="range"]')) return;
+                if (event.target.closest("#volumePanel")) return;
+
+                setHoverActive();
+                window.__TAURI__.core.invoke("toggle_play_pause");
+            }
+
+            function toggleVolumePanel(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                isVolumePanelOpen = !isVolumePanelOpen;
+
+                if (isVolumePanelOpen) {
+                    volumePanel.classList.remove("volume-panel-hidden");
+                    volumePanel.classList.add("volume-panel-visible");
+                    if (hoverTimeout) clearTimeout(hoverTimeout);
+                } else {
+                    closeVolumePanel();
+                }
+            }
+
+            function remove_focus() {
+                if (document.activeElement) {
+                    document.activeElement.blur();
+                }
+            }
+
+            function closeVolumePanel() {
+                isVolumeLocked = false;
+                isVolumePanelOpen = false;
+                volumePanel.classList.add("volume-panel-hidden");
+                volumePanel.classList.remove("volume-panel-visible");
+                remove_focus();
+            }
+
+            function updateVolume(value) {
+                const val = parseInt(value);
+                volumePercent.textContent = `${val}%`;
+                isVolumeLocked = true;
+                if (volumeLockoutTimer) clearTimeout(volumeLockoutTimer);
+                volumeLockoutTimer = setTimeout(() => {
+                    isVolumeLocked = false;
+                }, 1000);
+
+                volumeSlider.style.background = `linear-gradient(to right, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.65) ${val}%, rgba(255, 255, 255, 0.15) ${val}%, rgba(255, 255, 255, 0.15) 100%)`;
+
+                if (val === 0) {
+                    volumeIcon.textContent = "volume_off";
+                } else if (val < 50) {
+                    volumeIcon.textContent = "volume_down";
+                } else {
+                    volumeIcon.textContent = "volume_up";
+                }
+
+                window.__TAURI__.core.invoke("set_volume", {
+                    volume: val / 100,
+                });
+            }
+
+            function setHoverActive() {
+                playerContainer.classList.add("is-hovered");
+                mprisProgressRing.classList.remove("opacity-0");
+                mprisProgressRing.classList.add("opacity-100");
+            }
+
+            function setHoverInactive() {
+                playerContainer.classList.remove("is-hovered");
+                mprisProgressRing.classList.remove("opacity-100");
+                mprisProgressRing.classList.add("opacity-0");
+                closeVolumePanel();
+            }
+
+            playerContainer.addEventListener("mousedown", (event) => {
+                if (event.button === 1) {
+                    event.preventDefault();
+                }
+            });
+
+            miniPlayer.addEventListener("click", togglePlayState);
+            miniPlayer.addEventListener("contextmenu", (event) =>
+                event.preventDefault(),
+            );
+
+            prevBtn.addEventListener("click", (event) => {
+                event.stopPropagation();
+                window.__TAURI__.core.invoke("previous_track");
+            });
+
+            nextBtn.addEventListener("click", (event) => {
+                event.stopPropagation();
+                window.__TAURI__.core.invoke("next_track");
+            });
+
+            volumeIconBtn.addEventListener("mousedown", toggleVolumePanel);
+
+            volumeGroup.addEventListener("click", (event) => {
+                event.stopPropagation();
+            });
+
+            volumeSlider.addEventListener("input", (event) => {
+                updateVolume(event.target.value);
+            });
+
+            playerContainer.addEventListener("mouseenter", () => {
+                isMouseInside = true;
+                setHoverActive();
+            });
+
+            playerContainer.addEventListener("mouseleave", () => {
+                isMouseInside = false;
+                setHoverInactive();
+            });
+
+            playerContainer.addEventListener("mousemove", () => {
+                isMouseInside = true;
+                setHoverActive();
+                if (hoverTimeout) clearTimeout(hoverTimeout);
+                if (isVolumePanelOpen) return;
+                hoverTimeout = setTimeout(() => {
+                    isMouseInside = false;
+                    setHoverInactive();
+                }, 800);
+            });
+
+            document.addEventListener("mouseleave", () => {
+                isMouseInside = false;
+                setHoverInactive();
+            });
+
+            document.addEventListener("mouseout", (e) => {
+                if (!e.relatedTarget) {
+                    isMouseInside = false;
+                    setHoverInactive();
+                }
+            });
+
+            window.addEventListener("blur", () => {
+                isMouseInside = false;
+                setHoverInactive();
+            });
+
+            window.addEventListener("mousedown", (e) => {
+                if (!playerContainer.contains(e.target)) {
+                    closeVolumePanel();
+                } else if (!e.target.closest(".group\\/volume")) {
+                    closeVolumePanel();
+                }
+            });
+
+            window.addEventListener("DOMContentLoaded", async () => {
+                setProgress(0);
+
+                window.__TAURI__.event.listen("mpris-status", (event) => {
+                    const state = event.payload;
+
+                    trackTitle.textContent = state.track_title;
+                    artistMeta.textContent = state.artist;
+
+                    const albumArt = document.getElementById("albumArt");
+                    if (state.album_art && state.album_art !== "") {
+                        albumArt.src = state.album_art;
+                    } else {
+                        albumArt.src =
+                            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiPgogIDxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgZmlsbD0iIzFEQjk1NCIgLz4KICA8cGF0aCBkPSJNIDUuMiwxLjggQyAzLjUsMS44IDIuNSwyLjYgMi41LDQuMCBDIDIuNSw1LjQgMy41LDYuMiA1LjIsNi4yIEwgNS4zLDUuMiBDIDQuMiw1LjIgMy42LDQuNyAzLjYsNC4wIEMgMy42LDMuMyA0LjIsMi44IDUuMywyLjggWiIgZmlsbD0iI0ZGRkZGRiIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyLjUiIHI9IjcuNSIgZmlsbD0iIzE5MTQxNCIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyLjUiIHI9IjUuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjAuMyIgb3BhY2l0eT0iMC4xNSIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyLjUiIHI9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIwLjMiIG9wYWNpdHk9IjAuMTUiIC8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMi41IiByPSIyLjIiIGZpbGw9IiMxREI5NTQiIC8+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMi41IiByPSIwLjYiIGZpbGw9IiMxOTE0MTQiIC8+CiAgPGNpcmNsZSBjeD0iMTguNSIgY3k9IjYuNSIgcj0iMS4yIiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjI1IiAvPgogIDxjaXJjbGUgY3g9IjE4LjUiIGN5PSI2LjUiIHI9IjAuNiIgZmlsbD0iI0ZGRkZGRiIgLz4KICA8cGF0aCBkPSJNIDE4LjUsNi41IEwgMTguNSwxMS41IEwgMTUsMTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9IjE0LjIiIHk9IjE0LjIiIHdpZHRoPSIxLjYiIGhlaWdodD0iMS4yIiBmaWxsPSIjRkZGRkZGIiByeD0iMC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDAgMTUgMTUpIiAvPgo8L3N2Zz4=";
+                    }
+
+                    isPlaying = state.is_playing;
+                    if (isPlaying) {
+                        playerContainer.classList.remove("player-paused");
+                        playerContainer.classList.add("player-active");
+                    } else {
+                        playerContainer.classList.remove("player-active");
+                        playerContainer.classList.add("player-paused");
+                    }
+
+                    if (!isVolumeLocked) {
+                        const volVal = Math.round(state.volume * 100);
+                        volumeSlider.value = volVal;
+
+                        volumeSlider.style.background = `linear-gradient(to right, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.65) ${volVal}%, rgba(255, 255, 255, 0.15) ${volVal}%, rgba(255, 255, 255, 0.15) 100%)`;
+
+                        volumePercent.textContent = `${volVal}%`;
+                        if (volVal === 0) {
+                            volumeIcon.textContent = "volume_off";
+                        } else if (volVal < 50) {
+                            volumeIcon.textContent = "volume_down";
+                        } else {
+                            volumeIcon.textContent = "volume_up";
+                        }
+                    }
+
+                    if (isMouseInside) {
+                        setHoverActive();
+                    } else {
+                        setHoverInactive();
+                    }
+
+                    const progressPercent =
+                        (state.position_ms / state.duration_ms) * 100;
+                    setProgress(progressPercent);
+                });
+            });
+        </script>
+    </body>
+</html>
