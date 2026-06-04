@@ -5,7 +5,7 @@
     A desktop music controller for <a href="https://github.com/Spotifyd/spotifyd">spotifyd</a>
   </p>
   
-  <img src="./assets/demo.gif" alt="Cue Demo" width="400">
+  <img src="./assets/demo.gif" alt="Cue Demo">
 </div>
 
 ## About The Project
