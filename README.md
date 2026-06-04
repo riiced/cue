@@ -5,11 +5,13 @@
   <p align="center">
     A desktop music controller for spotifyd
   </p>
+  
+  <img src="./demo.gif" alt="Cue Demo" width="400">
 </div>
 
 ## About The Project
 
-Cue is a minimalist audio overlay built for users who want their album art visible on screen while providing simple play, pause, and volume controls. 
+Cue is a minimalist audio overlay built for users who want their album art visible on screen while providing play, pause, and volume controls. 
 
 ## Why
 
@@ -23,21 +25,33 @@ Download the precompiled appimage bundle from the [Releases](https://github.com/
 
 ### Building From Source
 
-You need base-devel and webkit2gtk-4.1 installed on your system.
+You need `base-devel` and `webkit2gtk-4.1` installed on your system.
 
 1. Clone the repository:
 ```bash
-   git clone [https://github.com/riiced/cue.git](https://github.com/riiced/cue.git)
-   cd cue
+git clone [https://github.com/riiced/cue.git](https://github.com/riiced/cue.git)
+cd cue
 
 ```
 
 2. Build the AppImage package:
 
 ```bash
-   cargo tauri build
+cargo tauri build
 
 ```
+
+---
+
+## Todo
+
+* [ ] Add basic audio visualizations
+
+---
+
+## Contributing
+
+Pull requests and feature requests are highly welcome. If you want to help improve Cue, open an issue or submit a PR.
 
 ---
 
