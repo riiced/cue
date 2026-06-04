@@ -5,7 +5,7 @@
     A desktop music controller for <a href="https://github.com/Spotifyd/spotifyd">spotifyd</a>
   </p>
   
-  <img src="./assets/demo.gif" alt="Cue Demo" width="400">
+<video src="./assets/demo.mp4" autoplay loop muted playsinline style="max-width: 100%;"></video>
 </div>
 
 ## About The Project
