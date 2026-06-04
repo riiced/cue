@@ -1,9 +1,8 @@
-<br/>
 <div align="center">
   <img src="./logo.svg" alt="Cue Logo" width="150" height="150">
   <h3 align="center">Cue</h3>
   <p align="center">
-    A desktop music controller for spotifyd
+    A desktop music controller for <a href="https://github.com/Spotifyd/spotifyd">spotifyd</a>
   </p>
   
   <img src="./demo.gif" alt="Cue Demo" width="400">
@@ -52,6 +51,13 @@ cargo tauri build
 ## Contributing
 
 Pull requests and feature requests are highly welcome. If you want to help improve Cue, open an issue or submit a PR.
+
+---
+
+## Acknowledgements
+
+* Thanks to [spotifyd](https://github.com/Spotifyd/spotifyd) for providing the foundation for this project.
+* Thanks for [Lofi Rocks](https://lofi.rocks) inspiring me on the minimalist concept.
 
 ---
 
